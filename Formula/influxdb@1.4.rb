@@ -6,12 +6,7 @@ class InfluxdbAT14 < Formula
       # :revision => "698dbc789aff13c2678357a6b93ff73dd7136571"
   head "https://github.com/influxdata/influxdb.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "e2c4abb2aed0ecb926ab89731e01e81bc9db8eebd50a97dd6571b3bca7f152b9" => :mojave
-    sha256 "d3dc109fddeb5684eaa92ce5e0791878971cf9b2760cdec61b639ed9c61baf0c" => :high_sierra
-    sha256 "fd1acadca8491c85302d666a09d5f550b2bb8d528473b60de321a3027ace3b5b" => :sierra
-  end
+  bottle :unneeded
 
   depends_on "dep" => :build
   depends_on "go" => :build
