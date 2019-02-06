@@ -1,9 +1,9 @@
-class InfluxdbAT14 < Formula
+class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
   url "https://github.com/influxdata/influxdb.git",
-      :tag      => "v1.4.3"
-      # :revision => "698dbc789aff13c2678357a6b93ff73dd7136571"
+      :tag => "v1.4.3",
+      :revision => "60d27e6995558f38a39e90b35a92cbac080310a3"
   head "https://github.com/influxdata/influxdb.git"
 
   bottle do
@@ -12,7 +12,7 @@ class InfluxdbAT14 < Formula
     sha256 "8be7a9019b1ab932a9829278586045e145210fe7f3b25e21d6af3b9f24dcf7df" => :el_capitan
   end
 
-  depends_on "dep" => :build
+  depends_on "gdm" => :build
   depends_on "go" => :build
 
   def install
@@ -23,7 +23,7 @@ class InfluxdbAT14 < Formula
     version = `git describe --tags`.strip
 
     cd influxdb_path do
-      system "dep", "ensure", "-vendor-only"
+      system "gdm", "restore"
       system "go", "install",
              "-ldflags", "-X main.version=#{version} -X main.commit=#{revision} -X main.branch=master",
              "./..."
