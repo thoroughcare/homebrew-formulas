@@ -1,4 +1,4 @@
-class Influxdb < Formula
+class InfluxdbAT14 < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
   url "https://github.com/influxdata/influxdb.git",
